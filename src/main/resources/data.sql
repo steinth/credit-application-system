@@ -1,0 +1,20 @@
+CREATE TABLE CLIENTE(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    zipCode VARCHAR(10) NOT NULL,
+    street VARCHAR(255) NOT NULL
+);
+CREATE TABLE Credit (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    creditCode UUID NOT NULL UNIQUE,
+    creditValue DECIMAL(15, 2) NOT NULL,
+    dayFirstInstallment DATE NOT NULL,
+    numberOfInstallments INT NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    customer_id BIGINT,
+    FOREIGN KEY (customer_id) REFERENCES Cliente(id) ON DELETE SET NULL
+)
