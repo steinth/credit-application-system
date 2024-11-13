@@ -20,7 +20,7 @@ data class Credit(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
-    val customer: Customer? = null,
+    var customer: Customer? = null,
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = null
 )
